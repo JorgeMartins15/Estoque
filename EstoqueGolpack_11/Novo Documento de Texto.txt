@@ -1,0 +1,18 @@
+CREATE TABLE IF NOT EXISTS ListaPorMaquina(
+maquina_id INT UNSIGNED NOT NULL,
+produto_id INT UNSIGNED NOT NULL,
+quantidade_por_maquina INT UNSIGNED NOT NULL,
+PRIMARY KEY (maquina_id, produto_id)
+);
+
+select * from ListaPorMaquina;
+
+insert into ListaPorMaquina (maquina_id, produto_id, quantidade_por_maquina)
+values (71,9,20),
+(71,8,15);
+
+select m.nome, p.nome, p.quantidadeAtual, lm.quantidade_por_maquina
+from listapormaquina lm, maquinas m, produtos p
+where m.id = lm.maquina_id
+and p.id = lm.produto_id
+and lm.maquina_id = 11;

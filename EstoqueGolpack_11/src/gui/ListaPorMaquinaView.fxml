@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="1360.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ListaPorMaquinaViewController">
+	<content>
+		<VBox prefHeight="750.0" prefWidth="1360.0">
+			<children>
+				<MenuBar prefHeight="32.0" prefWidth="500.0">
+					<menus>
+						<Menu mnemonicParsing="false" text="Menu">
+							<items>
+								<MenuItem fx:id="menuItemMaquinas" mnemonicParsing="false" onAction="#onMenuItemMaquinasAction" text="Máquinas" />
+								<MenuItem fx:id="menuItemComponentes" mnemonicParsing="false" onAction="#onMenuItemComponentesAction" text="Produtos" />
+                        <MenuItem fx:id="menuItemComponentesEletronica" mnemonicParsing="false" onAction="#onMenuItemComponentesEletronicaAction" text="Eletronica" />
+                        <MenuItem fx:id="menuItemDepartamento" mnemonicParsing="false" onAction="#onMenuItemDepartamentoAction" text="Departamento" />
+							</items>
+						</Menu>
+						<Menu mnemonicParsing="false" text="Help">
+							<items>
+								<MenuItem mnemonicParsing="false" text="About" />
+							</items>
+						</Menu>
+					</menus>
+				</MenuBar>
+				<Pane prefHeight="382.0" prefWidth="1360.0">
+					<children>
+						<Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e4e6e8" height="200.0" layoutX="8.0" layoutY="2.0" stroke="BLACK" strokeType="INSIDE" width="291.0" />
+						<Label layoutX="31.0" layoutY="15.0" text="Selecionar Máquina">
+							<font>
+								<Font name="System Bold" size="18.0" />
+							</font>
+						</Label>
+						<ComboBox fx:id="cbMaquinas" layoutX="22.0" layoutY="43.0" prefHeight="25.0" prefWidth="125.0" />
+						<Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e4e6e8" height="200.0" layoutX="305.0" layoutY="2.0" stroke="BLACK" strokeType="INSIDE" width="816.0" />
+						<Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e4e6e8" height="198.0" layoutX="1130.0" layoutY="2.0" stroke="BLACK" strokeType="INSIDE" width="209.0" />
+						<TextField fx:id="txtinsereIdMq" alignment="CENTER" layoutX="1143.0" layoutY="27.0" prefHeight="31.0" prefWidth="63.0" promptText="0" />
+						<TextField fx:id="txtinsereIdCp" alignment="CENTER" layoutX="1143.0" layoutY="73.0" prefHeight="31.0" prefWidth="63.0" promptText="0" />
+						<TextField fx:id="txtinserirQtd" alignment="CENTER" layoutX="1143.0" layoutY="119.0" prefHeight="31.0" prefWidth="63.0" promptText="0" />
+						<Button fx:id="btListainserir" layoutX="1143.0" layoutY="161.0" mnemonicParsing="false" onAction="#onBTListaInserirAction" text="Inserir" />
+						<Button fx:id="btListaDeletar" layoutX="1212.0" layoutY="161.0" mnemonicParsing="false" onAction="#onBTDeletarAction" text="Deletar" />
+						<Label layoutX="1212.0" layoutY="31.0" text="Id Máquina">
+							<font>
+								<Font name="System Bold" size="12.0" />
+							</font>
+						</Label>
+						<Label layoutX="1212.0" layoutY="77.0" text="Id Componente">
+							<font>
+								<Font name="System Bold" size="12.0" />
+							</font>
+						</Label>
+						<Label layoutX="1212.0" layoutY="123.0" text="Total por Máquina">
+							<font>
+								<Font name="System Bold" size="12.0" />
+							</font>
+						</Label>
+						<Label layoutX="323.0" layoutY="13.0" text="Consultar Id Componente">
+							<font>
+								<Font name="System Bold" size="14.0" />
+							</font>
+						</Label>
+						<Label layoutX="1143.0" layoutY="3.0" text="Inserir ou Deletar">
+							<font>
+								<Font name="System Bold" size="14.0" />
+							</font>
+						</Label>
+						<Button fx:id="btListaComponentes" layoutX="573.0" layoutY="141.0" mnemonicParsing="false" onAction="#onBTListaComponentesAction" text="Mostrar Todos" />
+                  <TableView fx:id="tabelaMaq" layoutX="837.0" layoutY="42.0" onMouseClicked="#tblArquivosMouseClikedMaq" prefHeight="88.0" prefWidth="247.0">
+                    <columns>
+                      <TableColumn fx:id="colIdMaq" prefWidth="75.0" text="Id" />
+                      <TableColumn fx:id="colNomeMaq" prefWidth="157.0" text="Máquina" />
+                    </columns>
+                  </TableView>
+                  <TextField fx:id="txtQtdeMaq" alignment="CENTER" layoutX="154.0" layoutY="74.0" onMouseClicked="#dataChange" prefHeight="25.0" prefWidth="36.0" promptText="0" />
+                  <Button fx:id="btBuscaMaq" layoutX="154.0" layoutY="43.0" mnemonicParsing="false" onAction="#onBTBuscaMaqAction" text="Busca / Multiplica" />
+                  <Label layoutX="198.0" layoutY="78.0" text="Multiplica" />
+                  <Button fx:id="btAdicionaALista" layoutX="154.0" layoutY="105.0" mnemonicParsing="false" onAction="#onBTAddListaAction" prefHeight="25.0" prefWidth="72.0" text="Add Lista  " />
+                  <Button fx:id="btExibir" layoutX="22.0" layoutY="77.0" mnemonicParsing="false" onAction="#onBTExibirAction" text="Exibir Lista Mesclada" />
+                  <Button fx:id="btListaFull" layoutX="22.0" layoutY="107.0" mnemonicParsing="false" onAction="#onBTListaFullAction" text="Exibir Tudo" />
+                  <Button fx:id="btLimpaLista" layoutX="228.0" layoutY="105.0" mnemonicParsing="false" onAction="#onBTLimpaListaAction" text="Limpa" />
+                  <TableView fx:id="tabelaComponentes" layoutX="323.0" layoutY="42.0" onMouseClicked="#tblArquivosMouseCliked" prefHeight="89.0" prefWidth="473.0">
+                    <columns>
+                      <TableColumn fx:id="colIdComp" prefWidth="75.0" text="Id" />
+                      <TableColumn fx:id="colNomeComp" prefWidth="137.0" text="Nome" />
+                        <TableColumn fx:id="colCodigoComp" prefWidth="109.0" text="Código" />
+                    </columns>
+                  </TableView>
+                  <Button fx:id="btBuscaComp" layoutX="507.0" layoutY="141.0" mnemonicParsing="false" onAction="#onBTBuscaNomeComponenteAction" text="Busca" />
+                  <TextField fx:id="txtBuscaNomeComponente" layoutX="323.0" layoutY="141.0" prefHeight="25.0" prefWidth="169.0" promptText="Nome do Componente" />
+                  <RadioButton fx:id="rbInicia" layoutX="323.0" layoutY="175.0" mnemonicParsing="false" text="Inicia..">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="group1" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton fx:id="rbCaracter" layoutX="400.0" layoutY="175.0" mnemonicParsing="false" text="Possui Char" toggleGroup="$group1" />
+                  <Button fx:id="btExportar" layoutX="154.0" layoutY="166.0" mnemonicParsing="false" onAction="#onBTExportarAction" text="Exportar" />
+                  <Button fx:id="btConcluiLista" layoutX="154.0" layoutY="135.0" mnemonicParsing="false" onAction="#onBTConcluiListaAction" text="Concluir Lista" />
+                  <Button fx:id="btBuscaMaqNome" layoutX="837.0" layoutY="169.0" mnemonicParsing="false" onAction="#onBTBuscaNomeMaquinaAction" text="Busca" />
+                  <Button fx:id="btBuscaMaqFull" layoutX="902.0" layoutY="169.0" mnemonicParsing="false" onAction="#onBTListaMaquinasAction" text="Mostar Todos" />
+                  <TextField fx:id="txtBuscaNomeMaquina" layoutX="837.0" layoutY="139.0" prefHeight="25.0" prefWidth="154.0" promptText="Nome Máquina" />
+                  <Button fx:id="btPorDepartamento" layoutX="22.0" layoutY="138.0" mnemonicParsing="false" onAction="#onBTExibirPorDepartamentoAction" text="Por Departamento" />
+                  <ComboBox fx:id="cbBuscaPorDepartamento" layoutX="22.0" layoutY="169.0" prefHeight="25.0" prefWidth="125.0" />
+                  <Label fx:id="lbAviso" layoutX="198.0" layoutY="91.0" text="Insira uma Máquina" textFill="#eb2a2a">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                  </Label>
+					</children>
+				</Pane>
+				<TableView fx:id="tableListaMaquina" editable="true" prefHeight="665.0" prefWidth="1360.0">
+					<columns>
+						<TableColumn fx:id="columnMaquina" prefWidth="75.0" text="Máquina" />
+						<TableColumn fx:id="columnComponente" prefWidth="200.0" text="Componente" />
+						<TableColumn fx:id="columnCodigo" prefWidth="154.0" text="Código" />
+						<TableColumn fx:id="columnQuantidadePorMaquina" minWidth="0.0" prefWidth="150.0" text="Quantidade por Máquina" />
+						<TableColumn fx:id="colMaquinaIdComp" minWidth="0.0" prefWidth="142.0" text="Id_Máquina" visible="false" />
+						<TableColumn fx:id="columnQuantidadeEstoque" minWidth="2.0" prefWidth="175.0" text="Quantidade em Estoque" />
+                  <TableColumn fx:id="columnTeste" prefWidth="75.0" text="Departamento" />
+					</columns>
+					<VBox.margin>
+						<Insets />
+					</VBox.margin>
+				</TableView>
+				<Label text="Ponto de Pedido" />
+			</children>
+		</VBox>
+	</content>
+</ScrollPane>

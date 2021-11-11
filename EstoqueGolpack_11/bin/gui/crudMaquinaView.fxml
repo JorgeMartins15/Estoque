@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="1360.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.crudMaquinaViewController">
+   <content>
+      <VBox prefHeight="750.0" prefWidth="1360.0">
+         <children>
+            <MenuBar prefHeight="32.0" prefWidth="500.0">
+              <menus>
+                <Menu mnemonicParsing="false" text="Menu">
+                  <items>
+                        <MenuItem fx:id="menuItemComponentes" mnemonicParsing="false" onAction="#onMenuItemComponentesAction" text="Consulta Produtos" />
+                        <MenuItem fx:id="menuItemLista" mnemonicParsing="false" onAction="#onMenuItemListaAction" text="Gerar Lista" />
+                        <MenuItem fx:id="menuItemComponentesEletronica" mnemonicParsing="false" onAction="#onMenuItemComponentesEletronicaAction" text="Eletronica" />
+                        <MenuItem fx:id="menuItemDepartamento" mnemonicParsing="false" onAction="#onMenuItemDepartamentoAction" text="Departamento" />
+                        <MenuItem fx:id="menuItemRequisicoes" mnemonicParsing="false" onAction="#onMenuItemRequisicoesAction" text="Requisicoes" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="About" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+            <Pane prefHeight="209.0" prefWidth="727.0">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e4e6e8" height="195.0" layoutX="247.0" layoutY="3.0" stroke="BLACK" strokeType="INSIDE" width="341.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e4e6e8" height="195.0" layoutX="6.0" layoutY="2.0" stroke="BLACK" strokeType="INSIDE" width="235.0" />
+                  <Button fx:id="btMostrarTodos" layoutX="13.0" layoutY="54.0" mnemonicParsing="false" onAction="#onBTMostrarTodosAction" text="Busca Todos" />
+                  <Button fx:id="btMostrarId" layoutX="271.0" layoutY="46.0" mnemonicParsing="false" onAction="#onBTBuscaIdAction" text="Buscar Id" />
+                  <Button fx:id="btUpdate" layoutX="271.0" layoutY="86.0" mnemonicParsing="false" onAction="#onBTUpdateAction" text="Atualizar" />
+                  <Button fx:id="btDeletar" layoutX="358.0" layoutY="86.0" mnemonicParsing="false" onAction="#onBTDeleteAction" text="Delete" />
+                  <TextField fx:id="txtId" layoutX="358.0" layoutY="46.0" prefHeight="31.0" prefWidth="62.0" promptText="Id" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e4e6e8" height="195.0" layoutX="595.0" layoutY="3.0" stroke="BLACK" strokeType="INSIDE" width="398.0" />
+                  <TextField fx:id="txtInserirNovo" layoutX="619.0" layoutY="102.0" prefHeight="31.0" prefWidth="352.0" promptText="Insira o nome da nova Máquina" />
+                  <Label fx:id="lbInserirNome" layoutX="619.0" layoutY="82.0" text="Insira o nome">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtAlteraNome" layoutX="272.0" layoutY="146.0" prefHeight="31.0" prefWidth="297.0" promptText="Digite o nome para update" />
+                  <Button fx:id="btConfirmarNovo" layoutX="619.0" layoutY="145.0" mnemonicParsing="false" onAction="#onBTConfirmarNovoAction" text="Confirma" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e4e6e8" height="195.0" layoutX="999.0" layoutY="2.0" stroke="BLACK" strokeType="INSIDE" width="344.0" />
+                  <Button fx:id="btLimparFiltros" layoutX="1237.0" layoutY="158.0" mnemonicParsing="false" onAction="#onBTLimpaFiltrosAction" text="Limpar Filtros" />
+                  <Label layoutX="14.0" layoutY="13.0" text="CRUD Máquinas">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="271.0" layoutY="13.0" text="Atualizar e Deletar">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="272.0" layoutY="127.0" text="Nome: ">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="619.0" layoutY="13.0" text="Inserir novo equipamento">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtBuscaNome" layoutX="1022.0" layoutY="34.0" />
+                  <Button fx:id="btBuscaNome" layoutX="1022.0" layoutY="67.0" mnemonicParsing="false" onAction="#onBTBuscaNomeAction" text="Busca por Nome" />
+                  <RadioButton fx:id="rbInicia" layoutX="1183.0" layoutY="37.0" mnemonicParsing="false" text="Inicia por ....">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="group1" />
+                     </toggleGroup></RadioButton>
+                  <RadioButton fx:id="rbCaracter" layoutX="1183.0" layoutY="62.0" mnemonicParsing="false" text="Possui os caracteres...." toggleGroup="$group1" />
+               </children>
+            </Pane>
+            <TableView fx:id="tabelaMaq" onMouseClicked="#tblArquivosMouseCliked" prefHeight="525.0" prefWidth="727.0">
+              <columns>
+                <TableColumn fx:id="colIdMaq" prefWidth="75.0" text="Id" />
+                <TableColumn fx:id="colNomeMaq" prefWidth="432.0" text="Máquina" />
+              </columns>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </TableView>
+         </children>
+      </VBox>
+   </content>
+</ScrollPane>

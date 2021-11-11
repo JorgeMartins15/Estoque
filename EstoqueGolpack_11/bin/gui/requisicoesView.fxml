@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="1360.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.requisicoesViewController">
+   <content>
+      <VBox prefHeight="750.0" prefWidth="1360.0">
+         <children>
+            <MenuBar prefHeight="32.0" prefWidth="500.0">
+              <menus>
+                <Menu mnemonicParsing="false" text="Menu">
+                  <items>
+                    <MenuItem fx:id="menuItemMaquinas" mnemonicParsing="false" onAction="#onMenuItemMaquinasAction" text="Máquinas" />
+                        <MenuItem fx:id="menuItemLista" mnemonicParsing="false" onAction="#onMenuItemListaAction" text="Gerar Lista" />
+                        <MenuItem fx:id="menuItemComponentesEletronica" mnemonicParsing="false" onAction="#onMenuItemComponentesEletronicaAction" text="Eletronica" />
+                        <MenuItem fx:id="menuItemDepartamento" mnemonicParsing="false" onAction="#onMenuItemDepartamentoAction" text="Departamento" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="About" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+            <HBox prefHeight="44.0" prefWidth="1360.0">
+               <children>
+                  <Button fx:id="btDecrementaAllReq" mnemonicParsing="false" onAction="#onBTDecrementaAllReqAction" text="&lt;&lt;">
+                     <HBox.margin>
+                        <Insets top="10.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="btDecrementaUmReq" mnemonicParsing="false" onAction="#onBTDecrementaUmReqAction" text="&lt;">
+                     <HBox.margin>
+                        <Insets left="5.0" top="10.0" />
+                     </HBox.margin>
+                  </Button>
+                  <TextField fx:id="txtNumeroReq" alignment="CENTER" onAction="#onTextBuscaReqReqAction" prefHeight="25.0" prefWidth="51.0">
+                     <HBox.margin>
+                        <Insets left="5.0" top="10.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <Button fx:id="btIncrementaUmReq" mnemonicParsing="false" onAction="#onBTIncrementaUmReqAction" text="&gt;">
+                     <HBox.margin>
+                        <Insets left="5.0" top="10.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="btIncrementaAllReq" mnemonicParsing="false" onAction="#onBTIncrementaAllReqAction" text="&gt;&gt;">
+                     <HBox.margin>
+                        <Insets left="5.0" top="10.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button mnemonicParsing="false" text="Nova">
+                     <HBox.margin>
+                        <Insets left="40.0" top="10.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button mnemonicParsing="false" text="Alterar">
+                     <HBox.margin>
+                        <Insets left="5.0" top="10.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button mnemonicParsing="false" text="Excluir">
+                     <HBox.margin>
+                        <Insets left="5.0" top="10.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Label text="Status Requisição:">
+                     <HBox.margin>
+                        <Insets left="40.0" top="15.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label text="Status">
+                     <HBox.margin>
+                        <Insets left="10.0" top="15.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+               <VBox.margin>
+                  <Insets left="5.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox prefHeight="557.0" prefWidth="1360.0">
+               <children>
+                  <TableView fx:id="tabelaRequisicao" prefHeight="651.0" prefWidth="1360.0">
+                    <columns>
+                      <TableColumn fx:id="colItem" prefWidth="75.0" text="Item" />
+                      <TableColumn fx:id="colNome" prefWidth="85.0" text="Nome" />
+                        <TableColumn fx:id="colCodigo" prefWidth="120.0" text="Código" />
+                        <TableColumn fx:id="colQuantidade" prefWidth="113.0" text="Quantidade" />
+                        <TableColumn fx:id="colDestino" prefWidth="110.0" text="Destino" />
+                        <TableColumn fx:id="colDataEmissao" minWidth="0.0" prefWidth="111.0" text="Data Emissao" />
+                        <TableColumn fx:id="colDataEntrega" minWidth="2.0" prefWidth="143.0" text="Data Entrega" />
+                    </columns>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <HBox.margin>
+                        <Insets top="30.0" />
+                     </HBox.margin>
+                  </TableView>
+                  <TabPane prefHeight="100.0" prefWidth="1158.0" tabClosingPolicy="UNAVAILABLE">
+                    <tabs>
+                      <Tab text="Consultar ">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                        </content>
+                      </Tab>
+                      <Tab text="Pendentes">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                        </content>
+                      </Tab>
+                    </tabs>
+                  </TabPane>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </content>
+</ScrollPane>

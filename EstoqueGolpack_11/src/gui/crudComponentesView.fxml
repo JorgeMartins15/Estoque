@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="1360.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.crudComponentesViewController">
+   <content>
+      <VBox prefHeight="750.0" prefWidth="1360.0">
+         <children>
+            <MenuBar prefHeight="32.0" prefWidth="500.0">
+              <menus>
+                <Menu mnemonicParsing="false" text="Menu">
+                  <items>
+                    <MenuItem fx:id="menuItemMaquinas" mnemonicParsing="false" onAction="#onMenuItemMaquinasAction" text="Máquinas" />
+                        <MenuItem fx:id="menuItemLista" mnemonicParsing="false" onAction="#onMenuItemListaAction" text="Gerar Lista" />
+                        <MenuItem fx:id="menuItemComponentesEletronica" mnemonicParsing="false" onAction="#onMenuItemComponentesEletronicaAction" text="Eletronica" />
+                        <MenuItem fx:id="menuItemDepartamento" mnemonicParsing="false" onAction="#onMenuItemDepartamentoAction" text="Departamento" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="About" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+            <Pane prefHeight="562.0" prefWidth="1360.0">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e4e6e8" height="329.0" layoutX="12.0" layoutY="10.0" stroke="BLACK" strokeType="INSIDE" width="275.0" />
+                  <Button fx:id="btCompBuscaTodos" layoutX="26.0" layoutY="59.0" mnemonicParsing="false" onAction="#onBTCompBuscaTodosAction" text="Busca Todos" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e4e6e8" height="329.0" layoutX="291.0" layoutY="10.0" stroke="BLACK" strokeType="INSIDE" width="396.0" />
+                  <Button fx:id="btBuscaId" layoutX="315.0" layoutY="43.0" mnemonicParsing="false" onAction="#onBTBuscaIdAction" text="Buscar Id" />
+                  <Button fx:id="btUpdate" layoutX="316.0" layoutY="88.0" mnemonicParsing="false" onAction="#onBTUpdateAction" text="Atualizar" />
+                  <Button fx:id="btDeletar" layoutX="411.0" layoutY="88.0" mnemonicParsing="false" onAction="#onBTDeleteAction" text="Delete" />
+                  <TextField fx:id="txtId" layoutX="412.0" layoutY="43.0" prefHeight="24.0" prefWidth="62.0" promptText="Id" />
+                  <TextField fx:id="txtAlteraNome" layoutX="313.0" layoutY="140.0" prefHeight="25.0" prefWidth="297.0" promptText="Digite o Nome para Update" />
+                  <TextField fx:id="txtAlteraCodigoGrupo" alignment="CENTER" layoutX="313.0" layoutY="189.0" prefHeight="25.0" prefWidth="40.0" promptText="000" />
+                  <TextField fx:id="txtAlteraFornecedor1" layoutX="313.0" layoutY="239.0" prefHeight="31.0" prefWidth="163.0" promptText="Update Fornecedor 1" />
+                  <TextField fx:id="txtAlteraFornecedor2" layoutX="483.0" layoutY="239.0" promptText="Update Fornecedor 2" />
+                  <TextField fx:id="txtAlteraQuantidadeAtual" layoutX="313.0" layoutY="289.0" prefHeight="25.0" prefWidth="65.0" promptText="Qtde." />
+                  <TextField fx:id="txtAlteraPontoDePedido" layoutX="399.0" layoutY="289.0" prefHeight="25.0" prefWidth="90.0" promptText="PP" />
+                  <Label fx:id="lbUpNome" layoutX="316.0" layoutY="122.0" text="Nome" />
+                  <Label fx:id="lbUpCodigo" layoutX="313.0" layoutY="170.0" text="Código" />
+                  <Label fx:id="lbUpFornecedor1" layoutX="313.0" layoutY="218.0" text="Fornecedor 1" />
+                  <Label fx:id="lbUpFornecedor2" layoutX="483.0" layoutY="218.0" text="Fornecedor 2" />
+                  <Label fx:id="lbUpQuantidadeAtual" layoutX="313.0" layoutY="270.0" text="Quantidade" />
+                  <Label fx:id="lbUpPontoPedido" layoutX="399.0" layoutY="270.0" text="Ponto de Pedido" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e4e6e8" height="329.0" layoutX="698.0" layoutY="10.0" stroke="BLACK" strokeType="INSIDE" width="390.0" />
+                  <Label fx:id="lbNewPontoPedido" layoutX="823.0" layoutY="225.0" text="Ponto de Pedido" />
+                  <TextField fx:id="txtInserirNome" layoutX="717.0" layoutY="92.0" prefHeight="25.0" prefWidth="297.0" promptText="Nome do novo Componente" />
+                  <TextField fx:id="txtInserirCodigoGrupo" alignment="CENTER" layoutX="717.0" layoutY="142.0" prefHeight="25.0" prefWidth="40.0" promptText="000" />
+                  <TextField fx:id="txtInserirFornecedor2" layoutX="885.0" layoutY="193.0" promptText="Novo Fornecedor 2" />
+                  <TextField fx:id="txtInserirFornecedor1" layoutX="717.0" layoutY="193.0" prefHeight="31.0" prefWidth="162.0" promptText="Novo Fornecedor 1" />
+                  <TextField fx:id="txtInserirQuantidadeAtual" layoutX="717.0" layoutY="244.0" prefHeight="25.0" prefWidth="65.0" promptText="Qtde." />
+                  <TextField fx:id="txtInserirPontoDePedido" layoutX="821.0" layoutY="244.0" prefHeight="25.0" prefWidth="90.0" promptText="PP" />
+                  <Label fx:id="lbNewNome" layoutX="719.0" layoutY="75.0" text="Nome" />
+                  <Label fx:id="lbNewCodigo" layoutX="717.0" layoutY="123.0" text="Código" />
+                  <Label fx:id="lbNewFornecedor1" layoutX="717.0" layoutY="174.0" text="Fornecedor 1" />
+                  <Label fx:id="lbNewFornecedor2" layoutX="885.0" layoutY="174.0" text="Fornecedor 2" />
+                  <Label fx:id="lbNewQuantidadeAtual" layoutX="717.0" layoutY="225.0" text="Quantidade" />
+                  <Button fx:id="btConfirmaNovo" layoutX="717.0" layoutY="286.0" mnemonicParsing="false" onAction="#onBTConfirmarNovoAction" text="Confirma" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e4e6e8" height="329.0" layoutX="1092.0" layoutY="10.0" stroke="BLACK" strokeType="INSIDE" width="247.0" />
+                  <Button fx:id="btLimpaFiltros" layoutX="1226.0" layoutY="286.0" mnemonicParsing="false" onAction="#onBTLimpaFiltrosAction" text="Limpa Filtros" />
+                  <Label layoutX="26.0" layoutY="22.0" text="CRUD Componentes">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="313.0" layoutY="18.0" text="Atualizar e Deletar">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="717.0" layoutY="15.0" text="Inserir novo Componente">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtBuscaNome" layoutX="1111.0" layoutY="31.0" />
+                  <Button fx:id="btBuscaNome" layoutX="1111.0" layoutY="63.0" mnemonicParsing="false" onAction="#onBTBuscaNomeAction" text="Buscar por Nome" />
+                  <RadioButton fx:id="rbInicia" layoutX="1111.0" layoutY="105.0" mnemonicParsing="false" text="Inicia por ...">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="group1" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton fx:id="rbCaracter" layoutX="1111.0" layoutY="132.0" mnemonicParsing="false" text="Possui os Caracteres ..." toggleGroup="$group1" />
+                  <TextField fx:id="txtAlteraCodigoSubGrupo" layoutX="355.0" layoutY="189.0" prefHeight="25.0" prefWidth="40.0" promptText="000" />
+                  <TextField fx:id="txtAlteraCodigoSubSub" alignment="CENTER" layoutX="397.0" layoutY="189.0" prefHeight="25.0" prefWidth="50.0" promptText="0000" />
+                  <TextField fx:id="txtInserirCodigoSubGrupo" alignment="CENTER" layoutX="759.0" layoutY="142.0" prefHeight="25.0" prefWidth="40.0" promptText="000" />
+                  <TextField fx:id="txtInserirCodigoSubSub" alignment="CENTER" layoutX="801.0" layoutY="142.0" prefHeight="25.0" prefWidth="50.0" promptText="0000" />
+                  <ComboBox fx:id="cbDepartamentoUpdate" layoutX="510.0" layoutY="289.0" prefWidth="150.0" />
+                  <ComboBox fx:id="cbDepartamentoNovo" layoutX="923.0" layoutY="244.0" prefWidth="150.0" />
+                  <Button fx:id="btBuscaPorDepartamento" layoutX="26.0" layoutY="105.0" mnemonicParsing="false" onAction="#onBTCompBuscaPorDepartamentoAction" text="Buscar por Departamento" />
+                  <ComboBox fx:id="cbDepartamentoBusca" layoutX="27.0" layoutY="137.0" prefWidth="150.0" />
+               </children>
+            </Pane>
+            <TableView fx:id="tabelaComponentes" onMouseClicked="#tblArquivosMouseCliked" prefHeight="651.0" prefWidth="1360.0">
+              <columns>
+                <TableColumn fx:id="colIdComp" prefWidth="75.0" text="Id" />
+                <TableColumn fx:id="colNomeComp" prefWidth="85.0" text="Nome" />
+                  <TableColumn fx:id="colCodigoComp" prefWidth="120.0" text="Código" />
+                  <TableColumn fx:id="colFornecedor1Comp" prefWidth="113.0" text="Fornecedor 1" />
+                  <TableColumn fx:id="colFornecedor2Comp" prefWidth="110.0" text="Fornecedor 2" />
+                  <TableColumn fx:id="colQuantidadeComp" minWidth="0.0" prefWidth="111.0" text="Quantidade Atual" />
+                  <TableColumn fx:id="colPontoPedidoComp" minWidth="2.0" prefWidth="143.0" text="Ponto de Pedido" />
+                  <TableColumn fx:id="colMaquinaIdComp" minWidth="0.0" prefWidth="142.0" text="Departamento" />
+              </columns>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </TableView>
+         </children>
+      </VBox>
+   </content>
+</ScrollPane>
